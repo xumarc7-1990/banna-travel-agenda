@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>西双版纳 & 普洱 6天5晚三代同堂亲子之旅</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f3f6f3;
+        }
+        .active-tab {
+            background-color: #059669 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
+        }
+        .rainforest-badge {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen p-3 md:p-6">
+
+    <div class="max-w-6xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-emerald-100">
+        
+        <!-- 头部 Banner -->
+        <div class="bg-gradient-to-r from-emerald-800 via-emerald-700 to-teal-700 text-white p-6 md:p-8 relative">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-medium mb-3 text-emerald-50">
+                        <i class="fa-solid fa-users"></i> 4大1小三代同行 · 低强度 · 避商业化 · 亲子自然深文化
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-bold tracking-tight">西双版纳 & 普洱 6天5晚温馨行程单</h1>
+                    <p class="text-emerald-100 text-xs md:text-sm mt-1.5 flex items-center gap-3">
+                        <span><i class="fa-solid fa-calendar-days mr-1"></i> 2026.08.23 - 08.28</span>
+                        <span><i class="fa-solid fa-plane mr-1"></i> 济南往返</span>
+                    </p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/20 text-xs space-y-1">
+                    <div class="font-bold text-yellow-300 text-sm mb-1"><i class="fa-solid fa-hotel mr-1"></i> 全程品质住宿</div>
+                    <div>• 8.23-8.25 西双版纳洲际大酒店 (3晚)</div>
+                    <div>• 8.26-8.27 普洱德庭酒店茶山店 (2晚)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 交互 Tab 切换 -->
+        <div class="bg-emerald-50/80 border-b border-emerald-100 p-3 md:p-4 flex flex-wrap gap-2 justify-center md:justify-start">
+            <button onclick="switchTab('all')" id="tab-all" class="tab-btn active-tab px-4 py-2 rounded-xl text-xs font-bold transition-all">
+                <i class="fa-solid fa-table-cells mr-1"></i> 全景表格概览
+            </button>
+            <button onclick="switchTab('d1')" id="tab-d1" class="tab-btn bg-white text-emerald-800 hover:bg-emerald-100 px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-emerald-100">
+                D1 8.23 到达/修养
+            </button>
+            <button onclick="switchTab('d2')" id="tab-d2" class="tab-btn bg-white text-emerald-800 hover:bg-emerald-100 px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-emerald-100">
+                D2 8.24 御花园/手作
+            </button>
+            <button onclick="switchTab('d3')" id="tab-d3" class="tab-btn bg-white text-emerald-800 hover:bg-emerald-100 px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-emerald-100">
+                🌱 D3 8.25 基诺山雨林
+            </button>
+            <button onclick="switchTab('d4')" id="tab-d4" class="tab-btn bg-white text-emerald-800 hover:bg-emerald-100 px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-emerald-100">
+                D4 8.26 高铁赴普洱
+            </button>
+            <button onclick="switchTab('d5')" id="tab-d5" class="tab-btn bg-white text-emerald-800 hover:bg-emerald-100 px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-emerald-100">
+                D5 8.27 森林公园/萌宠
+            </button>
+            <button onclick="switchTab('d6')" id="tab-d6" class="tab-btn bg-white text-emerald-800 hover:bg-emerald-100 px-3.5 py-2 rounded-xl text-xs font-bold transition-all border border-emerald-100">
+                D6 8.28 惬意返程
+            </button>
+        </div>
+
+        <!-- Tab 1: 全景表格 View -->
+        <div id="content-all" class="tab-content p-4 md:p-6 overflow-x-auto">
+            <table class="w-full text-left border-collapse min-w-[800px]">
+                <thead>
+                    <tr class="border-b-2 border-emerald-200 text-emerald-950 text-xs bg-emerald-50/50">
+                        <th class="py-3 px-3 w-32">日期/城市</th>
+                        <th class="py-3 px-3 w-36">🌤️ 天气与气温预测</th>
+                        <th class="py-3 px-3">📌 核心行程与活动安排</th>
+                        <th class="py-3 px-3 w-44">🍲 精选餐饮（少辣卫生）</th>
+                        <th class="py-3 px-3 w-44">👶👵 亲子长辈贴士</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 text-xs">
+                    
+                    <!-- D1 -->
+                    <tr class="hover:bg-slate-50">
+                        <td class="py-3.5 px-3 align-top font-medium">
+                            <span class="inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold mb-1">D1 8.23 周日</span>
+                            <div class="text-slate-500">版纳 · 入住修养</div>
+                            <div class="text-[11px] text-emerald-600 mt-1"><i class="fa-solid fa-bed"></i> 洲际大酒店</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top">
+                            <div class="font-bold text-amber-600">24°C ~ 31°C</div>
+                            <div class="text-slate-600"><i class="fa-solid fa-cloud-showers-heavy text-blue-400 mr-1"></i>雷阵雨 (75%)</div>
+                            <div class="text-[10px] text-slate-400 mt-0.5">午后易短时阵雨</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top space-y-1">
+                            <div class="font-bold text-slate-900">• 12:00-16:00 济南飞抵版纳嘎洒机场</div>
+                            <p class="text-slate-600">预订7座商务车接机（20分钟）直达洲际酒店办理入住。</p>
+                            <div class="font-bold text-slate-900">• 16:00-18:30 洲际400亩皇家园林漫步</div>
+                            <p class="text-slate-600">看散养孔雀、梯田，孩子可在儿童泳池玩水。</p>
+                        </td>
+                        <td class="py-3.5 px-3 align-top">
+                            <div class="font-semibold text-emerald-800">曼飞龙白塔傣味</div>
+                            <p class="text-slate-500">离酒店仅5分钟，庭院环境好。菠萝饭、香茅草烤鸡、包烧豆腐。（或洲际【香漫轩】）</p>
+                        </td>
+                        <td class="py-3.5 px-3 align-top text-slate-500 bg-orange-50/40 rounded-lg">
+                            首日飞行避免紧凑，休息适应气候为主。
+                        </td>
+                    </tr>
+
+                    <!-- D2 -->
+                    <tr class="hover:bg-slate-50">
+                        <td class="py-3.5 px-3 align-top font-medium">
+                            <span class="inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold mb-1">D2 8.24 周一</span>
+                            <div class="text-slate-500">版纳 · 人文手作</div>
+                            <div class="text-[11px] text-emerald-600 mt-1"><i class="fa-solid fa-bed"></i> 洲际大酒店</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top">
+                            <div class="font-bold text-amber-600">23°C ~ 32°C</div>
+                            <div class="text-slate-600"><i class="fa-solid fa-cloud-sun-rain text-blue-400 mr-1"></i>阵雨 (75%)</div>
+                            <div class="text-[10px] text-slate-400 mt-0.5">雨量~8.6mm</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top space-y-1">
+                            <div class="font-bold text-slate-900">• 09:00-12:00 曼听公园 + 总佛寺</div>
+                            <p class="text-slate-600">古傣王御花园，平路多适合长辈散步；总佛寺看傣传佛教建筑。</p>
+                            <div class="font-bold text-slate-900">• 14:30-17:00 曼广龙/曼听村非遗手作</div>
+                            <p class="text-slate-600">体验傣族慢轮制陶或傣纸制作，静心有趣。</p>
+                        </td>
+                        <td class="py-3.5 px-3 align-top space-y-1">
+                            <div class="font-semibold text-emerald-800">午：哆哆哩傣味</div>
+                            <p class="text-slate-500">椰香烤鸡、玉米饼。</p>
+                            <div class="font-semibold text-emerald-800">晚：宏菌园野生菌土鸡汤</div>
+                            <p class="text-slate-500">清汤滋补，鸡肉酥烂。</p>
+                        </td>
+                        <td class="py-3.5 px-3 align-top text-slate-500 bg-orange-50/40 rounded-lg">
+                            避开拥挤的星光夜市，晚上可选择澜沧江畔散步。
+                        </td>
+                    </tr>
+
+                    <!-- D3 Highlight -->
+                    <tr class="bg-emerald-50/60 hover:bg-emerald-50 border-l-4 border-l-emerald-600">
+                        <td class="py-3.5 px-3 align-top font-medium">
+                            <span class="inline-block px-2 py-0.5 bg-emerald-600 text-white rounded font-bold mb-1">D3 8.25 周二</span>
+                            <div class="text-emerald-950 font-bold">版纳 · 雨林徒步</div>
+                            <div class="text-[11px] text-emerald-700 mt-1"><i class="fa-solid fa-bed"></i> 洲际大酒店</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top">
+                            <div class="font-bold text-amber-600">23°C ~ 32°C</div>
+                            <div class="text-slate-600"><i class="fa-solid fa-cloud-showers-heavy text-blue-400 mr-1"></i>雷阵雨 (65%)</div>
+                            <div class="text-[10px] text-slate-400 mt-0.5">间歇阵雨，湿度大</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top space-y-1">
+                            <div class="font-bold text-emerald-900">• 08:00-12:00 基诺山雨林徒步（亲子平缓线）</div>
+                            <p class="text-slate-700">土著向导带队走巴坡/巴飘村平缓线：石头彩绘、踩水抓小鱼虾、树降/雨林秋千。</p>
+                            <div class="font-bold text-emerald-900">• 12:00-13:30 雨林芭蕉叶包烧大餐</div>
+                            <div class="font-bold text-emerald-900">• 14:00-17:30 返回洲际洗漱 + 沉浸式午休</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top space-y-1">
+                            <div class="font-semibold text-emerald-800">午：基诺包烧大餐</div>
+                            <p class="text-slate-500">竹筒饭、包烧肉。</p>
+                            <div class="font-semibold text-emerald-800">晚：青夏热带雨林餐厅</div>
+                            <p class="text-slate-500">玫瑰花啫土鸡蛋、菠萝排骨。</p>
+                        </td>
+                        <td class="py-3.5 px-3 align-top text-emerald-900 bg-emerald-100/60 rounded-lg">
+                            必须选平缓线（3km内），穿长袖长裤防晒衣，带强效DEET防蚊喷雾与备用裤袜。
+                        </td>
+                    </tr>
+
+                    <!-- D4 -->
+                    <tr class="hover:bg-slate-50">
+                        <td class="py-3.5 px-3 align-top font-medium">
+                            <span class="inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold mb-1">D4 8.26 周三</span>
+                            <div class="text-slate-500">跨城赴普洱</div>
+                            <div class="text-[11px] text-teal-600 mt-1"><i class="fa-solid fa-bed"></i> 德庭酒店(茶山店)</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top">
+                            <div class="font-bold text-amber-600">23°C ~ 29°C</div>
+                            <div class="text-slate-600"><i class="fa-solid fa-cloud-rain text-blue-400 mr-1"></i>中雨 (75%)</div>
+                            <div class="text-[10px] text-slate-400 mt-0.5">茶山较为凉爽</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top space-y-1">
+                            <div class="font-bold text-slate-900">• 09:30-11:30 动车赴普洱（车程45分钟）</div>
+                            <p class="text-slate-600">版纳站 $\rightarrow$ 普洱站，专车接站入住德庭酒店（茶山店）。</p>
+                            <div class="font-bold text-slate-900">• 14:30-17:00 那柯里茶马古道小镇</div>
+                            <div class="font-bold text-slate-900">• 17:00-18:30 营盘山万亩茶园采茶/压茶饼</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top space-y-1">
+                            <div class="font-semibold text-emerald-800">午：思普雅苑/马帮菜</div>
+                            <p class="text-slate-500">庭院私房菜。</p>
+                            <div class="font-semibold text-emerald-800">晚：德庭茶餐厅/茶山农家乐</div>
+                            <p class="text-slate-500">普洱茶炖鸡汤、茶芽炒蛋。</p>
+                        </td>
+                        <td class="py-3.5 px-3 align-top text-slate-500 bg-orange-50/40 rounded-lg">
+                            高铁车次推荐10:00-10:30，普洱段直接包7座专车，行李无忧。
+                        </td>
+                    </tr>
+
+                    <!-- D5 -->
+                    <tr class="hover:bg-slate-50">
+                        <td class="py-3.5 px-3 align-top font-medium">
+                            <span class="inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold mb-1">D5 8.27 周四</span>
+                            <div class="text-slate-500">普洱 · 自然萌宠</div>
+                            <div class="text-[11px] text-teal-600 mt-1"><i class="fa-solid fa-bed"></i> 德庭酒店(茶山店)</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top">
+                            <div class="font-bold text-amber-600">23°C ~ 29°C</div>
+                            <div class="text-slate-600"><i class="fa-solid fa-cloud-showers-heavy text-blue-400 mr-1"></i>小到中雨 (55%)</div>
+                            <div class="text-[10px] text-slate-400 mt-0.5">森林大氧吧</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top space-y-1">
+                            <div class="font-bold text-slate-900">• 08:30-12:00 太阳河森林公园(犀牛坪)</div>
+                            <p class="text-slate-600">悬空栈道平缓，近距离喂小熊猫、摸白犀牛。</p>
+                            <div class="font-bold text-slate-900">• 14:30-16:30 小凹子咖啡庄园</div>
+                            <p class="text-slate-600">老人树荫喝茶，孩子认识咖啡豆。</p>
+                        </td>
+                        <td class="py-3.5 px-3 align-top space-y-1">
+                            <div class="font-semibold text-emerald-800">午：小熊猫庄园湿地餐厅</div>
+                            <p class="text-slate-500">景区旁，竹荪土鸡汤。</p>
+                            <div class="font-semibold text-emerald-800">晚：老江川8号石锅鱼</div>
+                            <p class="text-slate-500">奶白鱼汤现蒸，极鲜无刺。</p>
+                        </td>
+                        <td class="py-3.5 px-3 align-top text-slate-500 bg-orange-50/40 rounded-lg">
+                            犀牛坪全程坐观光车+栈道；提醒孩子勿尖叫惊吓动物。
+                        </td>
+                    </tr>
+
+                    <!-- D6 -->
+                    <tr class="hover:bg-slate-50">
+                        <td class="py-3.5 px-3 align-top font-medium">
+                            <span class="inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold mb-1">D6 8.28 周五</span>
+                            <div class="text-slate-500">返程归家</div>
+                            <div class="text-[11px] text-slate-400 mt-1"><i class="fa-solid fa-plane-departure"></i> 飞回济南</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top">
+                            <div class="font-bold text-amber-600">23°C ~ 30°C</div>
+                            <div class="text-slate-600"><i class="fa-solid fa-cloud-sun-rain text-blue-400 mr-1"></i>雷阵雨 (75%)</div>
+                            <div class="text-[10px] text-slate-400 mt-0.5">预留充足机场时间</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top space-y-1">
+                            <div class="font-bold text-slate-900">• 09:00-11:30 茶山散步买伴手礼</div>
+                            <div class="font-bold text-slate-900">• 11:30-13:00 普洱动车返回版纳站</div>
+                            <div class="font-bold text-slate-900">• 13:30-16:00 嘎洒机场（16-20点航班返济南）</div>
+                        </td>
+                        <td class="py-3.5 px-3 align-top">
+                            <div class="font-semibold text-emerald-800">午：版纳站附近简餐</div>
+                            <p class="text-slate-500">嘎洒清汤土鸡煲或清汤云南米线。</p>
+                        </td>
+                        <td class="py-3.5 px-3 align-top text-slate-500 bg-orange-50/40 rounded-lg">
+                            版纳站离机场仅15分钟车程，预留2小时候机极轻松。
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Single Day Views (Hidden by default, shown via JS) -->
+        <div id="content-d1" class="tab-content hidden p-6 space-y-4">
+            <div class="flex items-center justify-between border-b pb-3">
+                <h3 class="text-lg font-bold text-emerald-900"><i class="fa-solid fa-sun text-amber-500 mr-2"></i>Day 1: 8月23日（周日）抵达西双版纳 · 隐逸入住修养</h3>
+                <span class="text-xs font-semibold px-3 py-1 bg-amber-100 text-amber-800 rounded-full">🌡️ 24°C ~ 31°C | 雷阵雨 (75%)</span>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4 text-xs">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                    <div class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-clock text-emerald-600 mr-1.5"></i>上午 / 下午</div>
+                    <p class="text-slate-600 leading-relaxed"><strong>12:00 ~ 16:00</strong> 济南飞抵西双版纳嘎洒国际机场。预约7座专车接机（车程仅20分钟）直达<strong>西双版纳洲际度假酒店</strong>。办理入住，稍作休整。</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                    <div class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-clock text-emerald-600 mr-1.5"></i>傍晚 (16:00 - 18:30)</div>
+                    <p class="text-slate-600 leading-relaxed">在洲际酒店400亩皇家园林内慢走散步，观赏散养孔雀、梯田风光，孩子可在儿童泳池玩水，适应热带气候。</p>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 space-y-2">
+                    <div class="font-bold text-emerald-900 text-sm"><i class="fa-solid fa-utensils text-emerald-600 mr-1.5"></i>晚餐与餐饮建议</div>
+                    <p class="text-emerald-800 leading-relaxed"><strong>曼飞龙白塔傣味餐厅（曼弄枫店）</strong>：离酒店5分钟，庭院优美，点菠萝饭、香茅草烤鸡、包烧豆腐等不辣家常菜。亦可在洲际【香漫轩】用餐。</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-d2" class="tab-content hidden p-6 space-y-4">
+            <div class="flex items-center justify-between border-b pb-3">
+                <h3 class="text-lg font-bold text-emerald-900"><i class="fa-solid fa-building-columns text-emerald-600 mr-2"></i>Day 2: 8月24日（周一）曼听御花园 & 傣族非遗手作</h3>
+                <span class="text-xs font-semibold px-3 py-1 bg-amber-100 text-amber-800 rounded-full">🌡️ 23°C ~ 32°C | 阵雨 (75%)</span>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4 text-xs">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                    <div class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-clock text-emerald-600 mr-1.5"></i>上午 (09:00 - 12:00)</div>
+                    <p class="text-slate-600 leading-relaxed">游览<strong>曼听公园</strong>（古傣王御花园），全程平地无陡坡，古树参天。后门直接通往<strong>西双版纳总佛寺</strong>，体验古老傣传佛教文化。</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                    <div class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-clock text-emerald-600 mr-1.5"></i>下午 (14:30 - 17:00)</div>
+                    <p class="text-slate-600 leading-relaxed">前往曼广龙或曼听村体验<strong>傣族非遗手作</strong>（慢轮制陶或傣纸制作），孩子动手制作陶罐，长辈可在旁喝茶休息。</p>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 space-y-2">
+                    <div class="font-bold text-emerald-900 text-sm"><i class="fa-solid fa-utensils text-emerald-600 mr-1.5"></i>特色餐饮推荐</div>
+                    <p class="text-emerald-800 leading-relaxed"><strong>午餐</strong>：哆哆哩傣味（椰香烤鸡、玉米饼）；<br><strong>晚餐</strong>：宏菌园·野生菌土鸡汤火锅（清汤慢炖，鲜美无辣，鸡肉酥烂）。</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-d3" class="tab-content hidden p-6 space-y-4">
+            <div class="flex items-center justify-between border-b pb-3 bg-emerald-50/80 p-3 rounded-xl">
+                <h3 class="text-lg font-bold text-emerald-950"><i class="fa-solid fa-tree text-emerald-600 mr-2"></i>Day 3: 8月25日（周二）基诺山雨林徒步 & 雨林大餐</h3>
+                <span class="text-xs font-semibold px-3 py-1 bg-amber-100 text-amber-800 rounded-full">🌡️ 23°C ~ 32°C | 雷阵雨 (65%)</span>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4 text-xs">
+                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 space-y-2">
+                    <div class="font-bold text-emerald-900 text-sm"><i class="fa-solid fa-person-hiking text-emerald-600 mr-1.5"></i>上午雨林徒步 (08:00 - 12:00)</div>
+                    <p class="text-emerald-800 leading-relaxed">7座包车前往<strong>基诺山（指定巴坡/巴飘村亲子平缓线，全程3km内）</strong>。土著向导带队进行石头彩绘、溪流踩水抓小鱼虾、体验树降与雨林秋千。</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                    <div class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-bed text-emerald-600 mr-1.5"></i>午餐与下午休整 (12:00 - 17:30)</div>
+                    <p class="text-slate-600 leading-relaxed"><strong>12:00</strong> 享用基诺族雨林芭蕉叶包烧大餐。<br><strong>14:00</strong> 乘车返回洲际酒店，<strong>彻底洗漱换装并安排沉浸式午休</strong>，恢复体力。</p>
+                </div>
+                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 space-y-2">
+                    <div class="font-bold text-amber-900 text-sm"><i class="fa-solid fa-triangle-exclamation text-amber-600 mr-1.5"></i>徒步装备与贴士</div>
+                    <p class="text-amber-800 leading-relaxed">穿薄款长袖防晒衣+速干长裤；备强效DEET防蚊喷雾；为孩子带防滑溯溪鞋与一套备用裤袜。长辈若体能一般可走前半段平路后在竹棚喝茶。</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-d4" class="tab-content hidden p-6 space-y-4">
+            <div class="flex items-center justify-between border-b pb-3">
+                <h3 class="text-lg font-bold text-emerald-900"><i class="fa-solid fa-train text-emerald-600 mr-2"></i>Day 4: 8月26日（周三）高铁赴普洱 · 茶马古道与压茶饼</h3>
+                <span class="text-xs font-semibold px-3 py-1 bg-amber-100 text-amber-800 rounded-full">🌡️ 23°C ~ 29°C | 中雨 (75%)</span>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4 text-xs">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                    <div class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-train text-emerald-600 mr-1.5"></i>上午跨城接驳 (09:30 - 12:00)</div>
+                    <p class="text-slate-600 leading-relaxed">退房乘7座专车去版纳站，搭乘中老铁路动车（45分钟）抵达普洱站。专车接站直达<strong>普洱德庭酒店（茶山店）</strong>办理入住。</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                    <div class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-mug-hot text-emerald-600 mr-1.5"></i>下午行程 (14:30 - 18:30)</div>
+                    <p class="text-slate-600 leading-relaxed">游览<strong>那柯里茶马古道小镇</strong>，看古桥、水车、风雨桥，极其安静。傍晚在营盘山万亩茶园体验采茶与亲自压制普洱茶饼带走。</p>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 space-y-2">
+                    <div class="font-bold text-emerald-900 text-sm"><i class="fa-solid fa-utensils text-emerald-600 mr-1.5"></i>餐饮安排</div>
+                    <p class="text-emerald-800 leading-relaxed"><strong>午餐</strong>：思普雅苑（普洱庭院私房菜）/ 心园马帮菜；<br><strong>晚餐</strong>：德庭茶餐厅/茶山农家乐（普洱茶炖鸡汤、茶芽炒蛋）。</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-d5" class="tab-content hidden p-6 space-y-4">
+            <div class="flex items-center justify-between border-b pb-3">
+                <h3 class="text-lg font-bold text-emerald-900"><i class="fa-solid fa-paw text-emerald-600 mr-2"></i>Day 5: 8月27日（周四）太阳河小熊猫 & 咖啡庄园</h3>
+                <span class="text-xs font-semibold px-3 py-1 bg-amber-100 text-amber-800 rounded-full">🌡️ 23°C ~ 29°C | 小到中雨 (55%)</span>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4 text-xs">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                    <div class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-hippo text-emerald-600 mr-1.5"></i>上午犀牛坪公园 (08:30 - 12:00)</div>
+                    <p class="text-slate-600 leading-relaxed">游览<strong>普洱太阳河国家森林公园（犀牛坪）</strong>，乘坐观光车+悬空平缓栈道，近距离喂食散养小熊猫、抚摸白犀牛，极为治愈。</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                    <div class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-mug-saucer text-emerald-600 mr-1.5"></i>下午咖啡庄园 (14:30 - 16:30)</div>
+                    <p class="text-slate-600 leading-relaxed">前往<strong>小凹子咖啡庄园</strong>，老人树荫下喝咖啡茶品，孩子认识咖啡豆生长与采摘过程，环境宁静舒适。</p>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 space-y-2">
+                    <div class="font-bold text-emerald-900 text-sm"><i class="fa-solid fa-utensils text-emerald-600 mr-1.5"></i>餐饮安排</div>
+                    <p class="text-emerald-800 leading-relaxed"><strong>午餐</strong>：小熊猫庄园湿地餐厅（生态滇菜、竹荪土鸡汤）；<br><strong>晚餐</strong>：老江川8号石锅鱼（奶白鱼汤高温现蒸，极鲜无刺无辣）。</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-d6" class="tab-content hidden p-6 space-y-4">
+            <div class="flex items-center justify-between border-b pb-3">
+                <h3 class="text-lg font-bold text-emerald-900"><i class="fa-solid fa-plane-departure text-emerald-600 mr-2"></i>Day 6: 8月28日（周五）茶山散步 & 顺利返航济南</h3>
+                <span class="text-xs font-semibold px-3 py-1 bg-amber-100 text-amber-800 rounded-full">🌡️ 23°C ~ 30°C | 雷阵雨 (75%)</span>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4 text-xs">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                    <div class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-gift text-emerald-600 mr-1.5"></i>上午茶山散步与采买 (09:00 - 11:30)</div>
+                    <p class="text-slate-600 leading-relaxed">在酒店周边茶山清晨散步，购买少量正宗普洱茶或咖啡豆伴手礼，收拾行李退房。</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                    <div class="font-bold text-slate-800 text-sm"><i class="fa-solid fa-train text-emerald-600 mr-1.5"></i>中午高铁与机场接驳</div>
+                    <p class="text-slate-600 leading-relaxed"><strong>11:30~13:00</strong> 乘动车从普洱返回版纳站（45分钟）。<br><strong>13:30~16:00</strong> 版纳站出来打车去嘎洒机场（仅15分钟车程），预留充足时间候机。</p>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 space-y-2">
+                    <div class="font-bold text-emerald-900 text-sm"><i class="fa-solid fa-plane-up text-emerald-600 mr-1.5"></i>返航济南</div>
+                    <p class="text-emerald-800 leading-relaxed">搭乘 <strong>16:00 ~ 20:00</strong> 之间的航班顺畅飞回济南，圆满结束6天5晚亲子之旅！</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部提示栏 -->
+        <div class="bg-slate-50 border-t border-slate-200 p-4 md:p-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+            <div class="flex gap-3 items-start">
+                <div class="p-2 bg-emerald-100 text-emerald-800 rounded-lg shrink-0"><i class="fa-solid fa-spray-can text-base"></i></div>
+                <div>
+                    <div class="font-bold text-slate-800 mb-0.5">防蚊与防雨避坑</div>
+                    <p class="text-slate-500 leading-relaxed">准备含DEET或派卡瑞丁成分强效防蚊喷雾。全家穿薄长袖长裤，随身带便携雨伞与孩子备用裤袜。</p>
+                </div>
+            </div>
+            <div class="flex gap-3 items-start">
+                <div class="p-2 bg-emerald-100 text-emerald-800 rounded-lg shrink-0"><i class="fa-solid fa-van-shuttle text-base"></i></div>
+                <div>
+                    <div class="font-bold text-slate-800 mb-0.5">包车与交通建议</div>
+                    <p class="text-slate-500 leading-relaxed">4大1小加行李强烈建议预订7座商务包车（带司机）；版纳往返普洱选45分钟高铁，远比开车走山路舒适。</p>
+                </div>
+            </div>
+            <div class="flex gap-3 items-start">
+                <div class="p-2 bg-emerald-100 text-emerald-800 rounded-lg shrink-0"><i class="fa-solid fa-bowl-food text-base"></i></div>
+                <div>
+                    <div class="font-bold text-slate-800 mb-0.5">餐饮口味点餐</div>
+                    <p class="text-slate-500 leading-relaxed">点餐主动交代“少油少盐、一点辣椒不要放”。野生菌汤火锅、石锅鱼、菠萝饭均极适合老人孩子。</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            // Hide all contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // Reset all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active-tab');
+                btn.classList.add('bg-white', 'text-emerald-800', 'hover:bg-emerald-100');
+            });
+
+            // Show target content
+            const targetContent = document.getElementById('content-' + tabId);
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+            }
+
+            // Highlight target button
+            const targetBtn = document.getElementById('tab-' + tabId);
+            if (targetBtn) {
+                targetBtn.classList.add('active-tab');
+                targetBtn.classList.remove('bg-white', 'text-emerald-800', 'hover:bg-emerald-100');
+            }
+        }
+    </script>
+</body>
+</html>
